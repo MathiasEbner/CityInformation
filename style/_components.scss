@@ -1,0 +1,629 @@
+//logo
+.logoContainer {
+  width: 75px;
+  cursor: pointer;
+  @include tablet-landscape-down {
+    width: 70px;
+  }
+  @include phone-only {
+    display: none;
+  }
+}
+//searchBar
+form {
+  width: 400px;
+  // min-width: 300px;
+  border: 1px solid $white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  @include tablet-landscape-down {
+    width: 300px;
+  }
+  @include phone-only {
+    max-width: 200px;
+    height: 37px;
+  }
+  #searchText,
+  button {
+    font-family: $font-regular;
+    font-size: 1.2rem;
+    letter-spacing: 0.05rem;
+    @include tablet-landscape-down {
+      font-size: 1.1rem;
+    }
+    @include phone-only {
+      font-size: 1rem;
+      letter-spacing: 0rem;
+    }
+  }
+  #searchText {
+    color: $white;
+    flex-grow: 1;
+    padding: 0.5rem 0.25rem 0.5rem 1.25rem;
+    @include tablet-landscape-down {
+      padding-left: 0.8rem;
+    }
+    @include phone-only {
+      font-size: 0.9rem;
+    }
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+  button {
+    padding: 0.6rem 0.8rem 0.5rem 0.5rem;
+    @include phone-only {
+      padding: 0.2rem 0.5rem 0.2rem 0.2rem;
+    }
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+}
+form:focus,
+form:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: all 1s;
+}
+//navBar
+
+.navContainer {
+  width: 270px;
+  //background-color: red;
+  display: flex;
+  justify-content: space-between;
+  @include tablet-landscape-down {
+    width: 230px;
+  }
+  @include phone-only {
+    max-width: 140px;
+    justify-content: space-around;
+    //background-color: purple;
+  }
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    caret-color: transparent;
+    .dropbtn {
+      background-color: $grey;
+      color: $white;
+      padding: 12px 20px 12px 20px;
+      @include tablet-landscape-down {
+        padding: 12px 16px 12px 16px;
+      }
+      @include phone-only {
+        font-size: 0.8rem;
+        padding: 8px 12px 8px 12px;
+      }
+      font-size: 1rem;
+      letter-spacing: 0.05rem;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      border: 1px solid $white;
+      outline: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .fa-angle-down {
+      @include phone-only {
+        margin-left: 5px;
+      }
+    }
+    .dropdown-content {
+      /* display: none; */
+      position: absolute;
+      background-color: $grey;
+      min-width: 160px;
+      @include tablet-landscape-down {
+        min-width: 160px;
+        right: 0;
+      }
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      overflow: hidden; /* Hide the element content, while height = 0 */
+      height: 0;
+      opacity: 0;
+      transition: height 0ms 400ms, opacity 400ms 0ms;
+      z-index: 1;
+    }
+
+    .history-dropdown {
+      overflow-y: scroll;
+      max-height: 300px;
+    }
+
+    .history-dropdown::-webkit-scrollbar {
+      width: 14px;
+      background-color: $grey;
+      border-radius: 2px;
+    }
+
+    .history-dropdown::-webkit-scrollbar-thumb {
+      border-radius: 2px;
+      background-color: $white;
+      background-image: -webkit-gradient(
+        linear,
+        0 0,
+        0 100%,
+        color-stop(0.5, rgba(255, 255, 255, 0.2)),
+        color-stop(0.5, transparent),
+        to(transparent)
+      );
+    }
+
+    .favouritesItem,
+    .histroyItem {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: 5px;
+      a {
+        color: $white;
+        padding: 12px 10px;
+        text-decoration: none;
+        display: block;
+        @include tablet-landscape-down {
+          padding: 10px 10px;
+          font-size: 0.9rem;
+        }
+        @include phone-only {
+          padding: 7px 9px;
+          font-size: 0.8rem;
+        }
+      }
+      .delete {
+        cursor: pointer;
+        font-size: 0.95rem;
+      }
+    }
+    .favouritesItem:hover,
+    .histroyItem:hover {
+      background-color: $black;
+      transition: all 0.25s ease-in;
+    }
+  }
+
+  .dropdown:hover .dropdown-content {
+    /* display: block; */
+    height: auto;
+    opacity: 1;
+    transition: all 0.25s ease-in;
+  }
+
+  .dropdown:hover .dropbtn {
+    background-color: $black;
+  }
+}
+
+//summary
+.summaryContainer {
+  .summaryText {
+    font-size: 1.1rem;
+    @include phone-only {
+      font-size: 0.9rem;
+      line-height: 1.15rem;
+    }
+    font-family: $font-light;
+  }
+
+  .summaryPopulation {
+    margin-top: 10px;
+    @include phone-only {
+      font-size: 1rem;
+    }
+  }
+
+  .summaryTextLink {
+    text-decoration: none;
+    color: $white;
+    font-weight: bold;
+    position: relative;
+    top: 10px;
+    caret-color: transparent;
+  }
+}
+
+//weather
+.weatherContainer {
+  caret-color: transparent;
+  h1 {
+    font-family: $font-bold;
+    letter-spacing: 0.025rem;
+    .city {
+      font-size: 2.7rem;
+      @include phone-only {
+        font-size: 1.9rem;
+      }
+    }
+    .country {
+      font-size: 1.5rem;
+      @include phone-only {
+        font-size: 1.2rem;
+      }
+    }
+    .star {
+      cursor: pointer;
+      position: relative;
+      bottom: 7px;
+      left: 5px;
+    }
+  }
+  .date {
+    font-family: $font-light;
+    font-size: 1rem;
+    @include phone-only {
+      font-size: 0.8rem;
+    }
+    padding: 5px;
+  }
+  .time {
+    font-family: $font-regular;
+    font-size: 1.2rem;
+    @include phone-only {
+      font-size: 1rem;
+    }
+    padding: 5px;
+  }
+
+  .temperatureContainer {
+    .temperature {
+      font-family: $font-bold;
+      font-size: 2.2rem;
+      @include phone-only {
+        font-size: 1.7rem;
+      }
+      letter-spacing: 0.025rem;
+    }
+    .weatherIcon {
+      width: 70px;
+      @include phone-only {
+        width: 50px;
+      }
+      @include tablet-landscape-down {
+        width: 60px;
+      }
+    }
+    .conditionMaxMinContainer {
+      font-family: $font-light;
+      font-size: 1rem;
+      @include phone-only {
+        font-size: 0.85rem;
+      }
+      .condition {
+        font-family: $font-light-italic;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .graphContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    .chart-container {
+      position: relative;
+      // height: 60%;
+      width: 70%;
+      @include desktop-down {
+        max-width: 310px;
+      }
+      @include phone-only {
+        width: 100%;
+      }
+    }
+  }
+}
+//image
+.image {
+  border: 2px solid $white;
+  border-radius: 5px;
+  transition: all 20s ease-in;
+  object-fit: cover;
+  width: 100%;
+  max-height: 400px;
+  // height: 100%;
+  /*   @include desktop-down {
+    object-fit: unset;
+    height: 300px;
+  } */
+}
+//news
+.newsItemContainer {
+  .newsItem {
+    background-color: $grey;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid $white;
+    border-radius: 6px;
+    padding: 17px 15px 15px 17px;
+    margin: 0px 13px 25px 20px;
+    .newsHeaderLink {
+      text-decoration: none;
+      color: $white;
+      h3 {
+        font-size: 1.2rem;
+        font-family: $font-bold;
+        cursor: pointer;
+        @include phone-only {
+          font-size: 1.1rem;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .newsItemBody {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include phone-only {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .newsText {
+        font-size: 1rem;
+        font-family: $font-light;
+        padding-right: 10px;
+        @include phone-only {
+          order: 2;
+          padding-right: 0px;
+          font-size: 0.9rem;
+          // flex-basis: 100%;
+        }
+      }
+      .newsImage {
+        width: 170px;
+        cursor: pointer;
+        caret-color: transparent;
+        @include phone-only {
+          order: 1;
+          object-fit: cover;
+          width: 95%;
+          margin-bottom: 10px;
+          // flex-basis: 100%;
+        }
+      }
+    }
+    .newsMetaData {
+      font-size: 0.7rem;
+      font-family: $font-light;
+      @include phone-only {
+        margin-top: 10px;
+        font-size: 0.6rem;
+      }
+    }
+  }
+}
+
+.newsItemContainer::-webkit-scrollbar {
+  width: 14px;
+  background-color: $grey;
+  border-radius: 2px;
+}
+
+.newsItemContainer::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: $white;
+  background-image: -webkit-gradient(
+    linear,
+    0 0,
+    0 100%,
+    color-stop(0.5, rgba(255, 255, 255, 0.2)),
+    color-stop(0.5, transparent),
+    to(transparent)
+  );
+}
+
+//maps
+#map {
+  height: 100%;
+  width: 100%;
+  min-width: 350px;
+  min-height: 300px;
+  border: 2px solid $white;
+  @include phone-only {
+    min-width: 150px !important;
+  }
+
+  .map-overlay {
+    max-width: 220px;
+    @include phone-only {
+      max-width: 180px;
+    }
+    @include phone-only {
+      font-size: 0.75rem;
+    }
+    font-size: 0.85rem;
+    font-family: $font-light;
+    color: $black;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    padding: 0px;
+    .map-overlay-inner {
+      background-color: $white;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      border-radius: 3px;
+      padding: 10px;
+      margin-bottom: 10px;
+      @include phone-only {
+        margin-bottom: 5px;
+      }
+      fieldset {
+        border: none;
+        padding: 0;
+        margin: 0 0 10px;
+        @include phone-only {
+          margin: 0 0 0px;
+        }
+      }
+      fieldset:last-child {
+        margin: 0;
+      }
+      select {
+        width: 100%;
+        font-family: $font-regular !important;
+        @include tablet-landscape-down {
+          font-size: 0.9rem;
+        }
+        @include phone-only {
+          font-size: 0.8rem;
+        }
+        option {
+          @include tablet-landscape-down {
+            font-size: 0.9rem;
+          }
+          @include phone-only {
+            font-size: 0.7rem;
+          }
+        }
+      }
+      label {
+        display: block;
+        font-weight: bold;
+        margin: 0 0 5px;
+      }
+      button {
+        display: inline-block;
+        width: 36px;
+        height: 20px;
+        @include phone-only {
+          width: 30px;
+          height: 17px;
+        }
+        border: none;
+        cursor: pointer;
+      }
+      button:focus {
+        outline: none;
+      }
+      button:hover {
+        box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}
+
+#menu {
+  position: absolute;
+  z-index: 100;
+  bottom: 0px;
+  background: $white;
+  padding: 10px;
+  font-family: $font-light;
+  color: $black;
+}
+
+//info
+.colorContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .colorButton {
+    width: 23px;
+    height: 23px;
+    //background-color: yellow;
+    border: 0.25px solid $white;
+    border-radius: 30px;
+    margin: 7px;
+    cursor: pointer;
+    caret-color: transparent;
+    @include phone-only {
+      width: 19px;
+      height: 19px;
+    }
+  }
+  #colorButton1 {
+    background-color: $yellow;
+  }
+  #colorButton2 {
+    background-color: $blue;
+  }
+  #colorButton3 {
+    background-color: $black;
+  }
+  .active {
+    width: 27px;
+    height: 27px;
+    @include phone-only {
+      width: 23px;
+      height: 23px;
+    }
+  }
+}
+/* 
+.fa-info {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  caret-color: transparent;
+  @include phone-only {
+    font-size: 1rem;
+  }
+}
+ */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10000; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.75); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: $black;
+  border-radius: 12px;
+  margin: auto;
+  padding: 20px 25px 20px 25px;
+  @include phone-only {
+    padding: 17px 17px 17px 17px;
+  }
+  border: 1px solid $white;
+  width: 70%;
+  @include phone-only {
+    width: 90%;
+  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 2rem;
+
+  .modalBody {
+    font-family: $font-light;
+    line-height: 1.3rem;
+  }
+  .modalHeader {
+    font-size: 1.3rem;
+    @include phone-only {
+      font-size: 1.1rem;
+    }
+    font-family: $font-regular;
+  }
+}
+
+/* The Close Button */
+.close {
+  color: $white;
+  float: right;
+  font-size: 35px;
+  @include phone-only {
+    font-size: 25px;
+  }
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}

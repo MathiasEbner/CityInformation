@@ -1,0 +1,205 @@
+body {
+  background: /* url('../assets/img/picture/t/clouds_20.png')  ,*/ $blue;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 2.5s ease-in;
+  transition: background-color 0.25s ease-in;
+  overflow-y: hidden;
+  @include desktop-down {
+    overflow-y: scroll;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0px 10px 0px;
+  // background-color: lightblue;
+  @include tablet-landscape-down {
+    padding: 15px 0px 5px 0px;
+  }
+  @include phone-only {
+    padding: 10px 1px 5px 3px;
+    //justify-content: space-between;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  // background-color: black;
+}
+
+.firstRow {
+  //  background-color: lightcoral;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-wrap: wrap;
+  padding: 0px 20px 0px 20px;
+  @include tablet-landscape-down {
+    padding: 0px 10px 0px 10px;
+  }
+  @include phone-only {
+    padding: 0px 5px 0px 5px;
+  }
+  //height: 300px;
+  // height: 40vh;
+  .summaryContainer {
+    flex: 1;
+    //  background-color: red;
+    padding: 20px;
+    padding-top: 40px;
+    @include desktop-down {
+      order: 2;
+    }
+    @include tablet-landscape-down {
+      order: 3;
+      flex-basis: 100%;
+    }
+  }
+
+  .weatherContainer {
+    flex: 1;
+    order: 1;
+    @include desktop-down {
+      order: 1;
+      flex-basis: 100%;
+    }
+    @include tablet-landscape-down {
+      order: 1;
+    }
+
+    // min-width: 340px;
+    @include phone-only {
+      width: 100%;
+      // min-width: 250px;
+    }
+    /// background-color: blue;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: center;
+    .temperatureContainer {
+      display: flex;
+      justify-content: space-between;
+      @include phone-only {
+        justify-content: space-around;
+      }
+      align-items: center;
+      width: 290px;
+      .conditionMaxMinContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 5px;
+      }
+    }
+    .graphContainer {
+      width: 100%;
+      //  background-color: chocolate;
+      height: 100%;
+      min-height: 140px;
+      @include tablet-landscape-down {
+        max-height: 175px;
+      }
+    }
+  }
+
+  .imageContainer {
+    flex: 1;
+    order: 1;
+    @include desktop-down {
+      order: 3;
+    }
+    @include tablet-landscape-down {
+      order: 2;
+      flex-basis: 100%;
+    }
+
+    //  background-color: green;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.secondRow {
+  // background-color: lightgreen;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-wrap: wrap;
+  padding: 0px 20px 0px 20px;
+  @include tablet-landscape-down {
+    padding: 0px 10px 0px 10px;
+  }
+  @include phone-only {
+    padding: 0px 5px 0px 5px;
+  }
+  .newsContainer {
+    flex: 1;
+    @include phone-only {
+      flex-basis: 100%;
+    }
+    display: flex;
+    justify-content: center;
+    //  background-color: yellowgreen;
+    padding: 20px;
+    .newsItemContainer {
+      max-width: 750px;
+      min-width: 600px;
+      height: 376px;
+      @include tablet-landscape-down {
+        height: 450px;
+      }
+      @include phone-only {
+        min-width: 200px;
+        width: 100%;
+        height: 450px;
+      }
+
+      //   background-color: lightblue;
+      overflow-y: auto;
+    }
+  }
+  .mapsContainer {
+    flex: 1;
+    // width: 150%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    //  background-color: rebeccapurple;
+    padding: 20px;
+    @include tablet-landscape-down {
+      height: 450px;
+    }
+    @include phone-only {
+      padding: 8px;
+      height: 420px;
+    }
+  }
+}
+
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $grey;
+  padding: 7px 0px 10px 0px;
+  border: 1px solid white;
+  border-radius: 13px;
+  position: fixed;
+  z-index: 1000;
+  bottom: 30px;
+  left: 30px;
+  @include phone-only {
+    bottom: 40px;
+    left: 10px;
+  }
+}

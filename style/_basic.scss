@@ -1,0 +1,26 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  color: $white;
+  font-family: $font-regular;
+}
+
+body {
+  // overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+hr {
+  width: 90%;
+  margin: auto;
+  border: 1px solid $white;
+}
+
+.none {
+  display: none;
+}
